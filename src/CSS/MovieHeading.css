@@ -1,0 +1,45 @@
+
+ 
+  .buttonheading1 {
+    background-color: white; 
+    color: rgb(12, 12, 27); 
+    border: 2px solid ;
+    border-radius: 20px;
+    padding: 10px;
+    margin: 4px 2px;
+    
+  }
+  
+  .buttonheading1:hover {
+    background-color: rgb(12, 12, 27);
+    color: white;
+  }
+  
+  .buttonheading2 {
+    background-color: white; 
+    color: black; 
+    border: 2px solid;
+    border-radius: 20px;
+    padding: 10px;
+    margin: 4px 2px;
+  }
+  
+  .buttonheading2:hover {
+    background-color: rgb(12, 12, 27);
+    color: white;
+  }
+  
+  .buttonheading3 {
+    background-color: white; 
+    color: black; 
+    border: 2px solid ;
+    border-radius: 20px;
+    padding: 10px;
+    margin: 4px 2px;
+  }
+  
+  .buttonheading3:hover {
+    background-color:rgb(12, 12, 27);
+    color: white;
+  }
+  
