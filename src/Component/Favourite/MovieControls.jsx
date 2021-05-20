@@ -18,7 +18,7 @@ export const MovieControls = ({ type, item }) => {
               borderRadius: "3px",
             }}
           >
-            <i className="fa-fw fa fa-times"></i>
+            <i class="fas fa-trash-alt"></i>
           </button>
         </>
       )}

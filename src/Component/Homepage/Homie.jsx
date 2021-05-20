@@ -129,7 +129,7 @@ function Homie() {
                         </li>
                       </ul>
                     </span>
-                    <Link to={`/home/${item.id}`}>
+                    <Link to={`/home/${item2.id}`}>
                       {" "}
                       <button className="button">Read More</button>{" "}
                     </Link>
@@ -166,7 +166,7 @@ function Homie() {
                         </li>
                       </ul>
                     </span>
-                    <Link to={`/home/${item.id}`}>
+                    <Link to={`/home/${item3.id}`}>
                       {" "}
                       <button className="button">Read More</button>{" "}
                     </Link>
