@@ -14,7 +14,7 @@ function Realeases() {
       "https://api.themoviedb.org/3/movie/now_playing?api_key=b187ef6c8cea760c0da207949305edb9&language=en-US&page=1"
     );
     const movies = await data.json();
-    console.log(movies.results);
+  
     setMovies(movies.results);
   };
 
@@ -33,12 +33,10 @@ function Realeases() {
     console.log(item);
   };
 
-  const loadMore = () => {
-    setVisible(visible + 5);
-  };
+  
 
   return (
-    <div className="allrealeases">
+    <div className="allrealeases" data-testid="movie-item">
       <div className=".container">
         <div className="row">
           <div className="col-md-6 col-sm-12">
@@ -46,9 +44,8 @@ function Realeases() {
               <Link to={`/home/${item.id}`}>
                 <img
                   key={item.id}
-                  src={`${"https://image.tmdb.org/t/p/original"}${
-                    item.backdrop_path
-                  }`}
+                  src={`${"https://image.tmdb.org/t/p/original"}${item.backdrop_path
+                    }`}
                   alt="movie"
                 ></img>
               </Link>
@@ -63,9 +60,8 @@ function Realeases() {
                     {" "}
                     <img
                       key={movie.id}
-                      src={`${"https://image.tmdb.org/t/p/original"}${
-                        movie.backdrop_path
-                      }`}
+                      src={`${"https://image.tmdb.org/t/p/original"}${movie.backdrop_path
+                        }`}
                       alt="movie"
                     ></img>
                   </Link>
@@ -82,7 +78,8 @@ function Realeases() {
     </div>
   );
 
- 
+
 }
 
 export default Realeases;
+

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "../../CSS/Searchbox.css";
 
 const SearchBox = ({ movies }) => {
+  
   const [movieName, setMovieName] = useState("");
   const [searchedMovies, setSearchedMovies] = useState([]);
 
@@ -16,9 +17,7 @@ const SearchBox = ({ movies }) => {
     setSearchedMovies(searchResult);
   }, [movieName, movies]);
 
-  const searchStyle = {
-    color: "white",
-  };
+  
 
   return (
     <div className="search-box">
@@ -28,8 +27,8 @@ const SearchBox = ({ movies }) => {
         onChange={(e) => setMovieName(e.target.value)}
         placeholder="Type to search..."
       />
-      <div className="search-btn">
-        <i style={searchStyle} className="fas fa-search"></i>
+      <div className="search-btn searchStyle">
+        <i className="fas fa-search"></i>
       </div>
 
       {searchedMovies &&

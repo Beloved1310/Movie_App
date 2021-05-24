@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../../CSS/MovieList.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { MOVIE_URL } from "../Constant";
 
 function Movie() {
   useEffect(() => {
@@ -16,7 +17,7 @@ function Movie() {
       `https://api.themoviedb.org/3/movie/popular?api_key=b187ef6c8cea760c0da207949305edb9&language=en-US&page=1`
     );
     const items = await data.json();
-    console.log(items.results);
+    
     setItems(items.results);
   };
   const loadMore = () => {
@@ -36,7 +37,7 @@ function Movie() {
               {" "}
               <img
                 key={item.id}
-                src={`${"https://image.tmdb.org/t/p/original"}${
+                src={`${MOVIE_URL}${
                   item.backdrop_path
                 }`}
                 alt="movie"

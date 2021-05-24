@@ -2,18 +2,18 @@ import React, { useContext } from "react";
 import { GlobalContext } from "../context/GlobalState";
 import { MovieCard } from "./MovieCard";
 import "../../CSS/Favourite.css";
+import { MOVIE_URL } from "../Constant";
 
 function Favourite() {
   const { watchlist } = useContext(GlobalContext);
-  console.log(watchlist);
   return (
     <div className="favouritepage">
       <div className="container">
         <div className="text-center">
-        <h1 class="text-white bg-dark">Favourite</h1>
+        <h1 className="text-white bg-dark">Favourite</h1>
          
         </div>
-        <div class="text-center">
+        <div className="text-center">
         {watchlist.length > 0 ? (
           <div className="movie-grid">
             {watchlist.map((item) => (
@@ -22,7 +22,7 @@ function Favourite() {
                   <img
                     className="img-fluid"
                     key={item.id}
-                    src={`${"https://image.tmdb.org/t/p/original"}${
+                    src={`${MOVIE_URL}${
                       item.backdrop_path
                     }`}
                     alt="movie"

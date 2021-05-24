@@ -9,25 +9,6 @@ body {
 .date {
   font-size: 14px;
 }
-/* .movie{
-  background-image: url('https://image.tmdb.org/t/p/original/9yBVqNruk6Ykrwc32qrK2TIE5xw.jpg');
-  width:900px;
-  height: 900px;
-  background-repeat: no-repeat;
-  /* background-size:contain;
-   */
-/* margin-top: -50px; */
-/* background-size: 100% 100%; */
-/* } */
-
-/* .movie2{
-  background-image: url('https://image.tmdb.org/t/p/original/inJjDhCjfhh3RtrJWBmmDqeuSYC.jpg');
-  background-size: 100% 100%;
-  margin-left: 900px;
-  width:764px;
-  height: 400px;
-  margin-top: -900px;
- } */
 
 .img1 {
   position: relative;
@@ -49,7 +30,7 @@ body {
 
 .heading2 {
   position: absolute;
-  margin-top: -27%;
+  margin-top: -32%;
   width: 900%;
   margin-left: 100px;
   color: white;

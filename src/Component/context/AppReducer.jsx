@@ -10,5 +10,6 @@ export default (state, action) => {
         ...state,
         watchlist: state.watchlist.filter((item) => item.id !== action.payload),
       };
+      
   }
 };

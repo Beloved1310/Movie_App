@@ -1,7 +1,9 @@
 import React from "react";
 import "../../CSS/Nav.css";
-import "bootstrap/dist/css/bootstrap.min.css";
+import { Link } from "react-router-dom";
 import { Navbar, Nav } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
+
 
 function App() {
   return (
@@ -17,7 +19,7 @@ function App() {
             <Nav className="justify-content-end">
               <Nav.Link href="/">Home </Nav.Link>
 
-              <Nav.Link href="/Favourite">Favourite</Nav.Link>
+              <Link to ="/Favourite" className ="nav">Favourite</Link>
             </Nav>
           </div>
         </Navbar.Collapse>

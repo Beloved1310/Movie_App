@@ -4,6 +4,7 @@ import Rating from "../../Component/Homepage/Rating";
 import Tag from "../../Component/Homepage/Tag";
 import { Link } from "react-router-dom";
 import "../../CSS/Oneimage.css";
+import { MOVIE_URL } from "../Constant";
 
 function Oneimage() {
   useEffect(() => {
@@ -18,7 +19,7 @@ function Oneimage() {
     );
     const item = await fetchItem.json();
     setItem(item);
-    console.log(item);
+ 
   };
   return (
     <article className="movie">
@@ -29,7 +30,7 @@ function Oneimage() {
               <img
                 className="imageone"
                 key={item.id}
-                src={`${"https://image.tmdb.org/t/p/original"}${
+                src={`${MOVIE_URL}${
                   item.backdrop_path
                 }`}
                 alt="movie"

@@ -1,3 +1,4 @@
+
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import Realeases from "../Component/NewReales/Realeases";
@@ -9,6 +10,8 @@ import Footer from "../Component/Footer/Footer";
 import Homie from "../Component/Homepage/Homie";
 
 function Homepage() {
+  
+  
   return (
     <div>
       <Homie />

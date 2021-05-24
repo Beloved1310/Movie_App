@@ -15,13 +15,17 @@ i {
 
 .detailimg1 {
   position: relative;
+  
+  max-width: 50%;
+ 
+  
 }
 
-/* @media all and (max-width: 750px) {
+@media all and (max-width: 450px) {
   .detailimg1 {
-    width: 100%;
+    max-width: 100%;
   }
-} */
+}
 .title_original {
   width: 200%;
 }
@@ -38,7 +42,7 @@ i {
 
 .detailprofile-image {
   position: absolute;
-  margin-top: -110%;
+  margin-top: -150%;
   width: 100%;
   margin-left: 60px;
   color: white;
@@ -50,10 +54,10 @@ i {
 
 .fitpage {
   position: absolute;
-  margin-top: -100%;
+  margin-top: -200%;
   color: white;
   font-size: 70px;
-  width: 600px;
+  width: 700px;
   padding-left: 150px;
 }
 .picture {

@@ -4,9 +4,7 @@ import SearchBox from "./SearchBox";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from "react-router-dom";
 function Footer() {
-  const navStyle = {
-    color: "white",
-  };
+  
   useEffect(() => {
     fetchItems();
   }, []);
@@ -23,7 +21,7 @@ function Footer() {
     <div className="footerimage">
       <div className="container-fluid">
         <div className="text-center lookingfor">
-          <p style={navStyle}>
+          <p className = "footerStyle">
             Looking for something else? Search our reviews:
           </p>
         </div>
@@ -32,7 +30,7 @@ function Footer() {
             <SearchBox movies={items} />
           </div>
         </div>
-        <div class="d-flex justify-content-center">
+        <div className="d-flex justify-content-center">
           <div className="connect ">
             <div className="text-center">
               <h3>Connect Us</h3>
@@ -43,7 +41,7 @@ function Footer() {
                 >
                   <li className="flex-item">
                     {" "}
-                    <i class="fab fa-github"></i>
+                    <i className="fab fa-github"></i>
                   </li>
                 </Link>
                 <Link
@@ -54,7 +52,7 @@ function Footer() {
                 >
                   <li className="flex-item">
                     {" "}
-                    <i class="fab fa-linkedin-in"></i>
+                    <i className="fab fa-linkedin-in"></i>
                   </li>
                 </Link>
                 <Link
@@ -62,7 +60,7 @@ function Footer() {
                   target="_blank"
                 >
                   <li className="flex-item">
-                    <i class="fab fa-twitter"></i>
+                    <i className="fab fa-twitter"></i>
                   </li>
                 </Link>
               </ul>

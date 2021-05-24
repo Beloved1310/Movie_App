@@ -1,10 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import  { useState } from "react";
+import  { useEffect } from "react"
 import "../../CSS/Home.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Rating from "./Rating";
 import Tag from "./Tag";
+import * as ReactBootStrap from 'react-bootstrap'
 
 import { Link } from "react-router-dom";
+import { MOVIE_URL } from "../Constant";
 
 function Homie() {
   useEffect(() => {
@@ -19,6 +23,7 @@ function Homie() {
     );
     const item = await fetchItem.json();
     setItem(item);
+    setIsLoading(false)
   };
 
   useEffect(() => {
@@ -49,6 +54,13 @@ function Homie() {
     setItem3(item3);
   };
 
+  const [isLoading, setIsLoading] = useState(true);
+  
+
+  if (isLoading){
+    return <ReactBootStrap.Spinner animation="border" />
+  }
+  
   return (
     <div className=".container-fluid">
       <div></div>
@@ -60,7 +72,7 @@ function Homie() {
               <img
                 className="profile-image"
                 key={item.id}
-                src={`${"https://image.tmdb.org/t/p/original"}${
+                src={`${MOVIE_URL}${
                   item.backdrop_path
                 }`}
                 alt="movie"
@@ -73,16 +85,16 @@ function Homie() {
                 <span>
                   <ul className="nav-links">
                     <li>
-                      <i class="fa fa-star" aria-hidden="true"></i>
-                      <i class="fa fa-star" aria-hidden="true"></i>
-                      <i class="fa fa-star" aria-hidden="true"></i>
-                      <i class="fa fa-star" aria-hidden="true"></i>
+                      <i className="fa fa-star" aria-hidden="true"></i>
+                      <i className="fa fa-star" aria-hidden="true"></i>
+                      <i className="fa fa-star" aria-hidden="true"></i>
+                      <i className="fa fa-star" aria-hidden="true"></i>
                     </li>
                     <li>
                       <Tag />
                     </li>
                     <li>
-                      <i class="fas fa-clock"></i>
+                      <i className="fas fa-clock"></i>
                       <span className="homereleasedate">
                         {item.release_date}
                       </span>{" "}
@@ -102,7 +114,7 @@ function Homie() {
                 <img
                   className="profile-image"
                   key={item2.id}
-                  src={`${"https://image.tmdb.org/t/p/original"}${
+                  src={`${MOVIE_URL}${
                     item2.backdrop_path
                   }`}
                   alt="movie"
@@ -122,7 +134,7 @@ function Homie() {
                           <Tag />
                         </li>
                         <li>
-                          <i class="fas fa-clock"></i>
+                          <i className="fas fa-clock"></i>
                           <span className="homereleasedate">
                             {item2.release_date}
                           </span>{" "}
@@ -140,7 +152,7 @@ function Homie() {
                 <img
                   className="profile-image"
                   key={item3.id}
-                  src={`${"https://image.tmdb.org/t/p/original"}${
+                  src={`${MOVIE_URL}${
                     item3.backdrop_path
                   }`}
                   alt="movie"
@@ -159,7 +171,7 @@ function Homie() {
                           <Tag />
                         </li>
                         <li>
-                          <i class="fas fa-clock"></i>
+                          <i className="fas fa-clock"></i>
                           <span className="homereleasedate">
                             {item3.release_date}
                           </span>{" "}
