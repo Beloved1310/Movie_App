@@ -1,11 +1,16 @@
-import React, { useState, useEffect, useContext } from "react";
+import React from "react";
+import  { useState } from "react";
+import  { useEffect } from "react"
 import { GlobalContext } from "../../Component/context/GlobalState";
+import { useContext } from "react";
 import "../../CSS/Homedetail.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import Tag from "./Tag";
 import Clock from "./Clock";
 
+import Footer from "../Footer/Footer";
+import { MOVIE_URL } from "../Constant";
 
 function Homedetail({ match }) {
   useEffect(() => {
@@ -15,7 +20,7 @@ function Homedetail({ match }) {
   const { addMovieToWatchlist, watchlist } = useContext(GlobalContext);
   console.log(watchlist);
   let storedMovie = watchlist.find((o) => o.id === match.id);
-  console.log(storedMovie);
+  
 
   const watchlistDisabled = storedMovie ? true : false;
 
@@ -27,116 +32,75 @@ function Homedetail({ match }) {
     );
     const item = await fetchItem.json();
     setItem(item);
-    console.log(item);
+    
   };
 
   return (
     <section className="detailmovie">
-    <div className=".container-fluid">
-      <div className="col-md-6 col-sm-12 detailimg1">
-        <img
-          className="img-responsive detailimg"
-          key={item.id}
-          src={`${"https://image.tmdb.org/t/p/original"}${item.backdrop_path}`}
-          alt="movie"
-          style={{ width: "205%", height: 900 }}
-        ></img>
+      <div className=".container-fluid">
+        <div className="col-md-6 col-sm-12 detailimg1">
+          <img
+            className="img-responsive detailimg"
+            key={item.id}
+            src={`${MOVIE_URL}${
+              item.backdrop_path
+            }`}
+            alt="movie"
+            style={{ width: "207%", height: 700 }}
+          ></img>
 
-        <div className="row">
-          <div className="col-sm">
-            
-            <div className="detailprofile-image">
-              <button className="detailtagbutton">{item.vote_average}</button>
-              <img
-                className="picture img-fluid"
-                src={`${"https://image.tmdb.org/t/p/original"}${
-                  item.backdrop_path
-                }`}
-                alt="movie"
-              ></img>
-            </div>
-          </div>
-          <div className="col-sm">
-            <div className = "fitpage">
-              
-          <h2>{item.original_title}</h2>
-            <div className="detailnav-links">
-              <span>
-                <i className="fa fa-star"></i>
-                <i className="fa fa-star"></i>
-                <i className="fa fa-star"></i>
-                <i className="fa fa-star"></i>
-                <i className="fa fa-star"></i>
-              </span>
-
-              <Clock />
-              <p className="release_date">{item.release_date}</p>
-              <Tag />
-              <div
-                disabled={watchlistDisabled}
-                onClick={() => addMovieToWatchlist(item)}
-              >
-                <i className="fa fa-heart redlove" aria-hidden="true">
-                  add to favourite
-                </i>
-              </div>
-              <i className="fa fa-clock-o fa_custom"></i>
-              <div>
-              <p className= "detailheading-text">{item.overview}</p>
+          <div className="row ">
+            <div className="col-lg-6 col-sm">
+              <div className="detailprofile-image">
+                <button className="detailtagbutton">{item.vote_average}</button>
+                <img
+                  className="picture img-fluid"
+                  src={`${MOVIE_URL}${
+                    item.backdrop_path
+                  }`}
+                  alt="movie"
+                ></img>
               </div>
             </div>
-          </div>
+            <div className="col-lg-6 col-sm">
+              <div className=" fitpage ">
+                <h1 className="title_original">{item.original_title}</h1>
+               
+                <div className="col-8">
+                  <div className="detailnav-links">
+                    <div>
+                      <i className="fa fa-star"></i>
+                      <i className="fa fa-star"></i>
+                      <i className="fa fa-star"></i>
+                      <i className="fa fa-star"></i>
+                      <i className="fa fa-star"></i>
+                    </div>
+                    <Clock />
+                    <p className="release_date">{item.release_date}</p>
+                    <Tag />
+                    <p className="release_date">{item.genre_ids}</p>
+                    <div
+                      disabled={watchlistDisabled}
+                      onClick={() => addMovieToWatchlist(item)}
+                    >
+                      <i className="fa fa-heart redlove" aria-hidden="true">
+                        add to favourite
+                      </i>
+                    </div>
+                    <i className="fa fa-clock-o fa_custom"></i>
+                  </div>
+                  <div>
+                    <p className="detailheading-text">{item.overview}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+      <Footer />
     </section>
   );
-  // return (
-  //     <article className="detailmovie">
-  //     <div className=".container-fluid">
-
-  //       <div className="row">
-  //           <div className = "col-md-6 col-sm-12 detailimg1">
-  //           <img className="img-responsive detailimg"  key={item.id} src={`${'https://image.tmdb.org/t/p/original'}${item.backdrop_path}`}alt='movie' style={{ width: '205%', height: 900 }}></img>
-
-  //          <div className = ".col4 detailheading">
-  //          <button className="detailtagbutton">{item.vote_average}</button>
-  //          <h2>{item.original_title}</h2>
-
-  //          <div className = "detailnav-links">
-  //           <div>
-  //             <i className = "fa fa-star"></i>
-  //             <i className = "fa fa-star"></i>
-  //             <i className = "fa fa-star"></i>
-  //             <i className = "fa fa-star"></i>
-  //             <i className = "fa fa-star"></i>
-
-  //           </div>
-  //           <Clock/><p className ="release_date" >{item.release_date}</p>
-  //            <Tag/>
-  //           <div  disabled = {watchlistDisabled} onClick={() => addMovieToWatchlist(item)}><i className = "fa fa-heart redlove" aria-hidden="true">add to favourite</i></div>
-  //           <i className="fa fa-clock-o fa_custom"></i>
-
-  //          </div>
-
-  //          <div className = ".col-8">
-  //          <p className= "detailheading-text">{item.overview}</p>
-  //          <img className='detailprofile-image img-fluid' src={`${'https://image.tmdb.org/t/p/original'}${item.backdrop_path}`}alt='movie' ></img>
-
-  //          </div>
-
-  //          </div>
-
-  //           </div>
-
-  //       </div>
-
-  //     </div>
-
-  //   </article>
-
-  // );
 }
 
 export default Homedetail;
